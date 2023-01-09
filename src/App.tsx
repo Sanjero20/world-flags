@@ -1,31 +1,24 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-type countryData = {
-  name: string;
-  capital: string;
-  region: string;
-  flag: string;
-  independent: boolean;
-};
+// External functions
+import { filterData } from './modules/filterList';
+
+// Types
+import { Country } from './types/country.types';
 
 function App() {
-  const [countries, setCountries] = useState();
+  const [countries, setCountries] = useState<Country[]>();
 
-  // Fetch the DATAs
+  // Fetch the Country info
   useEffect(() => {
     axios
       .get('https://restcountries.com/v2/all?fields=region,name,flag,capital')
       .then((res) => {
-        const responseData = res.data;
-        const countries = responseData.map(
-          ({ independent, ...data }: countryData) => data
-        );
-
+        const countries = filterData(res.data);
         setCountries(countries);
       })
       .catch((err) => {
-        console.clear();
         console.log(err);
       });
   }, []);
