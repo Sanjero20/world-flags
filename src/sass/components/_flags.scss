@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+  width: min(90%, 1100px);
+  height: 100%;
+  padding: 1em;
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 1em;
+}

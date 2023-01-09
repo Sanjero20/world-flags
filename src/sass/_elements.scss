@@ -1,4 +1,31 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  height: 65px;
+  background-color: $brand-color;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 2.5px;
+  box-shadow: $shadow;
+}
+
+input {
+  border: 1px solid grey;
+  padding: 0.25em;
+  border-radius: $rounded-corners;
 }

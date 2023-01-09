@@ -5,3 +5,11 @@ export type Country = {
   flag: string;
   independent?: boolean;
 };
+
+export type CountryProps = {
+  list: Country[];
+};
+
+export type CardProps = {
+  data: Country;
+};
