@@ -10,6 +10,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1em;
 }
 
 header {
@@ -24,8 +25,10 @@ header {
   box-shadow: $shadow;
 }
 
-input {
-  border: 1px solid grey;
-  padding: 0.25em;
-  border-radius: $rounded-corners;
+footer {
+  width: 100%;
+  padding-bottom: 0.5em;
+  box-sizing: border-box;
+  color: grey;
+  text-align: center;
 }

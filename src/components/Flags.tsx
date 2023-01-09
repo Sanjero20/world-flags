@@ -6,11 +6,13 @@ import Card from './Card';
 function Flags({ list }: CountryProps) {
   return (
     <div className="container">
-      {list.map((country: Country) => (
-        <React.Fragment key={country.name}>
-          <Card data={country} />
-        </React.Fragment>
-      ))}
+      <div className="flags">
+        {list.map((country: Country) => (
+          <React.Fragment key={country.name}>
+            <Card data={country} />
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
 }

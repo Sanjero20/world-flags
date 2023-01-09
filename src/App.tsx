@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 
 // Components
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import Flags from './components/Flags';
+import Footer from './components/Footer';
 
 // External functions
 import axios from 'axios';
@@ -30,7 +32,9 @@ function App() {
   return (
     <main>
       <Header />
+      <SearchBar />
       <Flags list={countries} />
+      <Footer />
     </main>
   );
 }
