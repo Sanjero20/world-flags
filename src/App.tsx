@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 // Components
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import Flags from './components/Flags';
 import Footer from './components/Footer';
-import Loader from './components/Loader';
 
 // External functions
 import axios from 'axios';
@@ -39,6 +38,7 @@ function App() {
       });
   }, []);
 
+  // Executes when user is inputting value to search bar
   useEffect(() => {
     if (searchText.trim() == '') {
       setMatchedCountries(countries);
@@ -47,8 +47,6 @@ function App() {
 
     const matches = search(searchText, countries);
     setMatchedCountries(matches);
-
-    // Executes when user is inputting value to search bar
   }, [searchText]);
 
   // Functions
@@ -60,8 +58,8 @@ function App() {
     <main>
       <Header />
 
-      {state.loading && <Loader />}
-      {!state.loading && state.error}
+      {state.loading && <span className="loader"></span>}
+      {!state.loading && state.error && <p className="error">{state.error}</p>}
 
       {!state.loading && !state.error && (
         <div className="main-container">
