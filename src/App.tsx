@@ -11,14 +11,18 @@ import Loader from './components/Loader';
 import axios from 'axios';
 import { filterData } from './modules/filterList';
 import statusReducer from './modules/status';
+import search from './modules/searchList';
 
 // Types
 import { Country } from './components/types/country.types';
 import { initialState } from './components/types/status.types';
 
 function App() {
-  const [countries, setCountries] = useState<Country[]>([]);
   const [state, dispatch] = useReducer(statusReducer, initialState);
+  const [countries, setCountries] = useState<Country[]>([]);
+
+  const [searchText, setSearchText] = useState('');
+  const [matchedCountries, setMatchedCountries] = useState<Country[]>([]);
 
   // Fetch the Country info
   useEffect(() => {
@@ -27,12 +31,30 @@ function App() {
       .then((res) => {
         const countries = filterData(res.data);
         setCountries(countries);
+        setMatchedCountries(countries);
         dispatch('success');
       })
       .catch((err) => {
         dispatch('error');
       });
   }, []);
+
+  useEffect(() => {
+    if (searchText.trim() == '') {
+      setMatchedCountries(countries);
+      return;
+    }
+
+    const matches = search(searchText, countries);
+    setMatchedCountries(matches);
+
+    // Executes when user is inputting value to search bar
+  }, [searchText]);
+
+  // Functions
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
 
   return (
     <main>
@@ -42,10 +64,10 @@ function App() {
       {!state.loading && state.error}
 
       {!state.loading && !state.error && (
-        <React.Fragment>
-          <SearchBar />
-          <Flags list={countries} />
-        </React.Fragment>
+        <div className="main-container">
+          <SearchBar value={searchText} searchHandler={handleSearch} />
+          <Flags list={matchedCountries} />
+        </div>
       )}
 
       <Footer />
