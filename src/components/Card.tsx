@@ -1,4 +1,4 @@
-import { CardProps } from '../types/country.types';
+import { CardProps } from './types/country.types';
 
 function Card({ data }: CardProps) {
   const { name, flag } = data;

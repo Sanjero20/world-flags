@@ -1,5 +1,5 @@
 import React from 'react';
-import { Country, CountryProps } from '../types/country.types';
+import { Country, CountryProps } from './types/country.types';
 import Card from './Card';
 
 // Render the list of countries
