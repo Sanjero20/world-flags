@@ -1,20 +1,24 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
 // Components
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import Flags from './components/Flags';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 
 // External functions
 import axios from 'axios';
 import { filterData } from './modules/filterList';
+import statusReducer from './modules/status';
 
 // Types
-import { Country } from './types/country.types';
+import { Country } from './components/types/country.types';
+import { initialState } from './components/types/status.types';
 
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [state, dispatch] = useReducer(statusReducer, initialState);
 
   // Fetch the Country info
   useEffect(() => {
@@ -23,17 +27,27 @@ function App() {
       .then((res) => {
         const countries = filterData(res.data);
         setCountries(countries);
+        dispatch('success');
       })
       .catch((err) => {
-        console.log(err);
+        dispatch('error');
       });
   }, []);
 
   return (
     <main>
       <Header />
-      <SearchBar />
-      <Flags list={countries} />
+
+      {state.loading && <Loader />}
+      {!state.loading && state.error}
+
+      {!state.loading && !state.error && (
+        <React.Fragment>
+          <SearchBar />
+          <Flags list={countries} />
+        </React.Fragment>
+      )}
+
       <Footer />
     </main>
   );
