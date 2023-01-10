@@ -1,0 +1,25 @@
+.loader,
+.error {
+  justify-self: center;
+  align-self: center;
+}
+
+.container {
+  width: min(90%, 1100px);
+  height: 100%;
+}
+
+.flags {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 1em;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
