@@ -18,6 +18,7 @@
 
 .main-container {
   width: 100%;
+  min-height: fit-content;
   display: flex;
   align-items: center;
   flex-direction: column;
