@@ -23,3 +23,30 @@
   flex-direction: column;
   gap: 1em;
 }
+
+// Tablets or iPad
+@media (480px < width < 768px) {
+  .flags {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+// Mobile Devices
+@media (320px < width < 480px) {
+  .flags {
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card {
+    p {
+      font-size: 12px;
+    }
+  }
+}

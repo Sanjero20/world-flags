@@ -12,8 +12,11 @@
   border-radius: $rounded-corners;
   box-shadow: $shadow;
 
+  gap: 5px;
+
   img {
-    height: 100px;
+    width: 80%;
+    height: auto;
     box-shadow: $shadow2;
   }
 

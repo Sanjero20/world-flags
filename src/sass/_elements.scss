@@ -36,3 +36,9 @@ footer {
   color: #424242;
   text-align: center;
 }
+
+@media (320px < width < 480px) {
+  html {
+    overflow-y: auto;
+  }
+}

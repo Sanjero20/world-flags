@@ -1,10 +1,11 @@
 .search-bar {
+  width: min(90%, 400px);
   position: relative;
   display: flex;
   align-items: center;
 
   input {
-    width: 400px;
+    width: 100%;
     padding: 0.25em 0.5em 0.25em 2.25em;
     font-size: 1.1em;
     box-sizing: border-box;
