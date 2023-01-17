@@ -1,7 +1,11 @@
 // Tablets or iPad
 @media (480px < width < 768px) {
+  .search-bar {
+    width: 100%;
+  }
+
   .flags {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .card {
@@ -19,7 +23,7 @@
 
   .flags {
     justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .card {
