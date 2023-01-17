@@ -8,9 +8,9 @@ import Footer from './components/Footer';
 
 // External functions
 import axios from 'axios';
-import { filterData } from './modules/filterList';
-import statusReducer from './modules/status';
-import search from './modules/searchList';
+import { filterData } from './utils/filterList';
+import statusReducer from './utils/status';
+import search from './utils/searchList';
 
 // Types
 import { Country } from './components/types/country.types';
