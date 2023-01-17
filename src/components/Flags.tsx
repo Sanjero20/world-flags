@@ -16,14 +16,12 @@ function Flags({ list }: CountryProps) {
   }
 
   return (
-    <div className="container">
-      <div className="flags">
-        {list.map((country: Country) => (
-          <React.Fragment key={country.name}>
-            <Card data={country} />
-          </React.Fragment>
-        ))}
-      </div>
+    <div className="flags">
+      {list.map((country: Country) => (
+        <React.Fragment key={country.name}>
+          <Card data={country} />
+        </React.Fragment>
+      ))}
     </div>
   );
 }

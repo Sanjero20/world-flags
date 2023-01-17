@@ -5,8 +5,12 @@
 }
 
 .container {
-  width: min(90%, 1100px);
+  margin: 0 auto;
+  width: min(90%, 1050px);
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .flags {
@@ -14,40 +18,4 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 250px);
   gap: 1em;
-}
-
-.main-container {
-  width: 100%;
-  min-height: fit-content;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1em;
-}
-
-// Tablets or iPad
-@media (480px < width < 768px) {
-  .flags {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .card {
-    p {
-      font-size: 15px;
-    }
-  }
-}
-
-// Mobile Devices
-@media (320px < width < 480px) {
-  .flags {
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .card {
-    p {
-      font-size: 12px;
-    }
-  }
 }

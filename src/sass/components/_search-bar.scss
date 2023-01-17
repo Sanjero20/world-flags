@@ -1,8 +1,9 @@
 .search-bar {
-  width: min(90%, 400px);
+  width: 50%;
   position: relative;
   display: flex;
   align-items: center;
+  align-self: center;
 
   input {
     width: 100%;

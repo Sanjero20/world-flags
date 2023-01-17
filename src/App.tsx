@@ -62,7 +62,7 @@ function App() {
       {!state.loading && state.error && <p className="error">{state.error}</p>}
 
       {!state.loading && !state.error && (
-        <div className="main-container">
+        <div className="container">
           <SearchBar value={searchText} searchHandler={handleSearch} />
           <Flags list={matchedCountries} />
         </div>
