@@ -1,0 +1,34 @@
+// Tablets or iPad
+@media (480px < width < 768px) {
+  .search-bar {
+    width: 100%;
+  }
+
+  .flags {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+// Mobile Devices
+@media (320px < width < 480px) {
+  .search-bar {
+    width: 100%;
+  }
+
+  .flags {
+    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    p {
+      font-size: 12px;
+    }
+  }
+}

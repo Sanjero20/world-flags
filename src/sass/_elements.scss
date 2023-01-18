@@ -15,6 +15,11 @@ main {
   display: grid;
   grid-template-rows: 65px 1fr;
   gap: 1em;
+  transition: all 200ms ease-in-out;
+
+  &.dark {
+    background-color: $dark;
+  }
 }
 
 header {
@@ -27,6 +32,17 @@ header {
   justify-content: center;
   letter-spacing: 2.5px;
   box-shadow: $shadow;
+
+  h1 {
+    letter-spacing: 1px;
+  }
+
+  div {
+    width: min(90%, 1100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 footer {
@@ -40,5 +56,11 @@ footer {
 @media (320px < width < 480px) {
   html {
     overflow-y: auto;
+  }
+
+  header {
+    h1 {
+      font-size: 1.25rem;
+    }
   }
 }
