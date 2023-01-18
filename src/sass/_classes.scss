@@ -6,7 +6,7 @@
 
 .container {
   margin: 0 auto;
-  width: min(90%, 1100px);
+  width: $container-width;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -18,4 +18,28 @@
   justify-content: center;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
+}
+
+.btn-theme {
+  background-color: transparent;
+  color: white;
+  padding: 10px 5px;
+  width: 110px;
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: $rounded-corners;
+  border: 1px solid $brand-color;
+  transition: all 100ms;
+
+  i {
+    font-size: 1.5em;
+  }
+
+  &:hover {
+    border: 1px solid white;
+  }
 }

@@ -11,12 +11,16 @@ import axios from 'axios';
 import { filterData } from './utils/filterList';
 import statusReducer from './utils/status';
 import search from './utils/searchList';
+import getColorTheme from './utils/theme';
 
 // Types
 import { Country } from './components/types/country.types';
 import { initialState } from './components/types/status.types';
 
+const THEME = getColorTheme();
+
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>(THEME);
   const [state, dispatch] = useReducer(statusReducer, initialState);
   const [countries, setCountries] = useState<Country[]>([]);
 
@@ -54,9 +58,17 @@ function App() {
     setSearchText(e.target.value);
   };
 
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
   return (
-    <main>
-      <Header />
+    <main className={theme}>
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
       {state.loading && <span className="loader"></span>}
       {!state.loading && state.error && <p className="error">{state.error}</p>}
